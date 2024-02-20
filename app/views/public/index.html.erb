@@ -1,0 +1,7 @@
+<% if current_user %>
+<li><%= link_to "登出", destroy_user_session_path, method: :delete, class:"btn" %></li>
+<li><%# button_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+<% else %>
+<li><%= link_to "註冊", new_users_registration_path, class:"btn" %></li>
+<li><%= link_to "登入", new_users_session_path, class:"btn" %></li>
+<% end %>
