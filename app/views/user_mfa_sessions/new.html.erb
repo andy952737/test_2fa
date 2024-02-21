@@ -3,9 +3,9 @@
 
 <h1>User Settings</h1> 
 <%= @google_secret %> <br>
-<%= @qr_code_uri %>
+<%# @qr_code_uri %>
 <p>Scan this QR Code with your Google Authenticator app to set up two-factor authentication:</p>  
-<%= image_tag @qr_code_uri, alt: "Google Authenticator QR Code", style: 'height: 200px;width: 200px;' %> 
+<%= image_tag current_user.google_qr_uri, alt: "Google Authenticator QR Code", style: 'height: 200px;width: 200px;' %> 
  <%# @qr_code_uri %> <br><br>
 
  <%= form_tag user_mfa_sessions_create_path, method: :post, class: "search-form", role: "search" do %>

@@ -15,10 +15,15 @@ class UserMfaSessionsController < ApplicationController
     user.save!
     if user.google_authentic?(params[:mfa_code])
       UserMfaSession.create(user)
+      puts "MFA驗證成功?!"
       redirect_to root_path
     else
-      flash.now[:danger] = "Invalid code"
-      render :new
+      puts "你被登出了"
+      #session[:user_id] = nil
+      if user_signed_in?
+          sign_out(current_user)
+      end
+      redirect_to root_path
     end
   end
 

@@ -25,7 +25,7 @@ class Users::SessionsController < Devise::SessionsController
           #   return
           #   # UserMfaSession.create(user)
           #   # redirect_to root_path
-          # else
+          # else 
           #   puts "Invalid code"
           #   return
           #   # flash.now[:danger] = "Invalid code"
@@ -37,6 +37,7 @@ class Users::SessionsController < Devise::SessionsController
           admin.google_secret_value         
           admin.google_qr_uri               
           admin.google_authentic?(123456)   
+          admin.google_secret_value
           #admin.clear_google_secret!         
           admin.save
 
